@@ -28,8 +28,16 @@
 				<p><a href="#/">Better than spreedsheets.</a></p>
 				
 			</div>
-					
-
+			
+			<div ng-show="progress.active">		
+				<!-- Progress Bar -->
+				<div id="progress" class="progress" data-total="12">
+					<div class="bar bar-success" style="width: {{progress.complete}}%;"></div>
+				</div>
+				<a ng-click="progress.captureDisp=!progress.captureDisp" >toggle</a>
+			</div>
+			<!-- / Progress Bar -->
+	
 			<!-- Views get injected here -->
 			<div class="row" ng-view></div>
 

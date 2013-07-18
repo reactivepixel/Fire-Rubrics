@@ -31,11 +31,15 @@ angular.module('wallpaper', ['firebase'])
 }])
 
 .controller('Core', ['$scope', 'angularFireCollection', 
+
+
+
+
 	function myCtrl(s,angularFireCollection){
 		var url = 'https://prorubrics.firebaseio.com/courses';
 		s.courses = angularFireCollection(url, s, 'courses', []);
 		
-		
+		s.progress = {complete:0,captureDisp:false,active:false};
 	
 
 	}
@@ -154,9 +158,8 @@ angular.module('wallpaper', ['firebase'])
 
 }])
 
-
 .controller('Rubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
-	
+	s.progress.active = true;
 	//Add Math to the View
 	s.Math = window.Math;
 	// Establish Selected Course
@@ -205,7 +208,29 @@ angular.module('wallpaper', ['firebase'])
 			}
 		})
 	});
-	
+	s.onGrade = function(){
+
+		var audit = {
+				totalItems 		: 0,
+				completedItems 	: 0,
+			}
+		for(sectionKey in s.rubric.sections){
+			var section = s.rubric.sections[sectionKey];
+			for(itemKey in section.items){
+				var item = section.items[itemKey];
+				audit.totalItems++;
+				
+				// Check if item was captured
+				if(item.capture){
+					audit.completedItems++;
+				}
+			}
+		}
+
+		s.progress.complete = Math.round(audit.completedItems / audit.totalItems * 100);
+
+		console.log('Here we go', s.progress.complete);
+	}
 }])
 
 .controller('AddItem', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
