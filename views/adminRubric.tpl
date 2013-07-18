@@ -1,3 +1,8 @@
+<div ng-show="sumError" class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Warning!</strong> Sum of all Sections needs to be 100%.
+</div>
+
 <h1>{{rubric.title}}</h1>
 <section ng-repeat="section in rubric.sections">
 	<h3>{{section.title}} 

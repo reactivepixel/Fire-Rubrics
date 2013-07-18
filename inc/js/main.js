@@ -80,7 +80,7 @@ angular.module('wallpaper', ['firebase'])
 		for(key in arySections){
 			objSections[key] = {
 				title 		: arySections[key],
-				secWeight 	: 1 / arySections.length,
+				secWeight 	: Math.round((1 / arySections.length) * 100) /100,
 			};
 		}
 		s.course.rubrics.add({
@@ -95,7 +95,7 @@ angular.module('wallpaper', ['firebase'])
 }])
 
 .controller('Rubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
-
+	s.sumError = false;
 	//Add Math to the View
 	s.Math = window.Math;
 	// Establish Selected Course
@@ -125,6 +125,15 @@ angular.module('wallpaper', ['firebase'])
 							s.rubric.$id = rubricKey;
 						}
 					}
+
+					var sum = 0;
+					for(sectionKey in s.rubric.sections){
+						sum += s.rubric.sections[sectionKey].secWeight * 1;
+					}
+					if(sum != 1){
+						s.sumError = true;
+					}
+					console.log('xxx', sum);
 				}
 			}
 		})
