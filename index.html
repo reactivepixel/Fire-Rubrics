@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="wallpaper">
+	<head>
+		<title>BG Overload</title>
+		
+		<!--  Make the page mobile friendly  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- CSS Libs -->
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+		<link href="inc/css/lib/flat-ui.css" rel="stylesheet">
+
+		<!-- Site's CSS -->
+		<link href="inc/css/site.css" rel="stylesheet">
+
+		<!-- Angular JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script src="inc/js/lib/angularFire.min.js"></script>
+	</head>
+	<body>
+		
+		<div class="container-fluid" ng-controller="Core">
+			
+			<div class="hero-unit">
+				<h1>ProRubrics</h1>
+				<p><a href="#/">Better than spreedsheets.</a></p>
+				
+			</div>
+			
+
+			<!-- Views get injected here -->
+			<div class="span12" ng-view></div>
+
+		</div> <!-- // container-fluid -->
+
+		<script src="inc/js/main.js"></script>
+	</body>
+</html>

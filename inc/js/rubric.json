@@ -1,0 +1,42 @@
+rubrics			: [{
+        			title			: 'Some title',
+        			sections		: [{
+        				title			: 'Design',
+        				gradeWeight		: 50,
+        				items			: [{
+        					title			: 'Branding',
+        					content			: 'Bunch of content!',
+        					link			: 'http://www.google.com'
+        				},
+        				{
+        					title			: 'Branding',
+        					content			: 'Bunch of content!',
+        					link			: 'http://www.google.com'
+        				},
+        				{
+        					title			: 'Branding',
+        					content			: 'Bunch of content!',
+        					link			: 'http://www.google.com'
+        				}],
+        			},
+        			{
+        				title			: 'Development',
+        				gradeWeight		: 50,
+        				items			: [{
+        					title			: 'Branding',
+        					content			: 'Bunch of content!',
+        					link			: 'http://www.google.com'
+        				},
+        				{
+        					title			: 'Branding',
+        					content			: 'Bunch of content!',
+        					link			: 'http://www.google.com'
+        				},
+        				{
+        					title			: 'Branding',
+        					content			: 'Bunch of content!',
+        					link			: 'http://www.google.com'
+        				}],
+        			}],
+        			gradeOptions	: [100,75,40,0]
+        		}]
