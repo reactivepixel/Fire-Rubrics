@@ -1,12 +1,17 @@
-<article class="span12 itemBox">
+<div class="alert alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Caution!</strong> Changes you make go live instantly!
+</div>
+
+<article class="itemBox">
 
 	<hgroup>
 		<h3>{{course.courseCode}} <small>{{course.title}}</small> </h3>
-		<p ng-show="course.rubrics">{{course.rubrics.length}} Rubrics</p>
+		<p ng-show="course.rubrics">Edit Rubrics</p>
 	</hgroup>
 	
 	<p>
-		<a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-info">{{rubric.title}}</a>
+		<a href="#/admin/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-warning">{{rubric.title}}</a>
 	</p>
 </article>
 

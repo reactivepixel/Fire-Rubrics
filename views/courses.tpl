@@ -16,7 +16,9 @@
 			</h3>
 		</a>
 
-		<p>Rubrics:</p>
-		<a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-info">{{rubric.title}}</a>
+		<p>View Rubric</p>
+		<a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-info">
+			{{rubric.title}}
+		</a>
 	</div>
 </article>
