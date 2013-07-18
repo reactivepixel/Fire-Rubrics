@@ -7,6 +7,8 @@
 		<label>Course Title</label>
 		<input type="text" ng-model="title" placeholder="Mobile Device Deployment">
 		
-		<button type="submit" class="btn">Save</button>
+		<div>
+		<button type="submit" class="btn">Add</button>
+		</div>
 	</fieldset>
 </form>

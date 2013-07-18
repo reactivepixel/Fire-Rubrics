@@ -20,6 +20,7 @@
 				
 				<label>Section Titles</label>
 				<input type="text" ng-model="SectionTitles" placeholder="Design,Branding,Other">
+				<span class="help-block">Comma-seperated list.</span>
 
 				<label>Grade Options</label>
 				<input type="text" ng-model="GradeOptions" placeholder="100,75,40,0">
