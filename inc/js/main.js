@@ -61,7 +61,6 @@ angular.module('wallpaper', ['firebase'])
 	}
 }])
 
-
 .controller('Course', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
 	//s.course = { courseCode: params.courseCode };
 	
@@ -117,7 +116,7 @@ angular.module('wallpaper', ['firebase'])
 					if(s.courses[key].courseCode == params.courseCode){
 
 					s.course = s.courses[key];
-					s.course.$id 	= key;
+				//	s.course.$id 	= key;
 					break;
 				}
 			}
@@ -173,7 +172,7 @@ angular.module('wallpaper', ['firebase'])
 					if(s.courses[key].courseCode == params.courseCode){
 
 					s.course 		= s.courses[key];
-					s.course.$id 	= key;
+					//s.course.$id 	= key;
 					break;
 				}
 			}
@@ -248,7 +247,7 @@ angular.module('wallpaper', ['firebase'])
 					if(s.courses[key].courseCode == params.courseCode){
 
 					s.course = s.courses[key];
-					s.course.$id 	= key;
+					//s.course.$id 	= key;
 					break;
 				}
 			}
