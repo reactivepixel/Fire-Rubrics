@@ -23,7 +23,7 @@
 							<a href="{{item.url}}">more info</a>
 						</small>
 					</h3>
-					<div class="span12 non-essential">{{item.content}}</div>
+					<div class="span12 non-essential" ng-bind-html-unsafe="item.markdown"></div>
 				</div>		
 					<!-- Grading Btns -->
 			<aside class="span4 item-grade-wrapper non-essential">
@@ -78,7 +78,7 @@
 							<a href="{{item.url}}">more info</a>
 						</small>
 					</h3>
-					<div class="span12 non-essential">{{item.content}}</div>
+					<div class="span12 non-essential" ng-bind-html-unsafe="item.markdown"></div>
 				</div>		
 					<!-- Grading Btns -->
 			<aside class="span4 item-grade-wrapper non-essential">

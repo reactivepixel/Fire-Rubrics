@@ -32,7 +32,7 @@
 							<a href="{{item.url}}">more info</a>
 						</small>
 					</h3>
-					<div class="span12 non-essential">{{item.content}}</div>
+					<div class="span12 non-essential" ng-bind-html-unsafe="item.markdown"></div>
 				</div>		
 			</div>
 		</div>

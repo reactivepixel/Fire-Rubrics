@@ -131,13 +131,24 @@ angular.module('wallpaper', ['firebase'])
 						if(s.course.rubrics[rubricKey].title == params.rubricTitle){
 							s.rubric = s.course.rubrics[rubricKey];
 							s.rubric.$id = rubricKey;
+							break;
 						}
 					}
 
 					var sum = 0;
+					var converter = new Showdown.converter();
+					// inject id's into sections
 					for(sectionKey in s.rubric.sections){
+						s.rubric.sections[sectionKey].$id = sectionKey;
 						sum += s.rubric.sections[sectionKey].secWeight * 1;
+
+						for(itemKey in s.rubric.sections[sectionKey].items){
+							var thisItem = s.rubric.sections[sectionKey].items[itemKey];
+							thisItem.markdown = converter.makeHtml( thisItem.content );
+						}
 					}
+
+					
 					if(sum != 1){
 						s.sumError = true;
 					}
@@ -191,15 +202,20 @@ angular.module('wallpaper', ['firebase'])
 						}
 					}
 
+					var sum = 0;
+					var converter = new Showdown.converter();
 					// inject id's into sections
 					for(sectionKey in s.rubric.sections){
 						s.rubric.sections[sectionKey].$id = sectionKey;
+						sum += s.rubric.sections[sectionKey].secWeight * 1;
+
+						for(itemKey in s.rubric.sections[sectionKey].items){
+							var thisItem = s.rubric.sections[sectionKey].items[itemKey];
+							thisItem.markdown = converter.makeHtml( thisItem.content );
+						}
 					}
 
-					var sum = 0;
-					for(sectionKey in s.rubric.sections){
-						sum += s.rubric.sections[sectionKey].secWeight * 1;
-					}
+					
 					if(sum != 1){
 						s.sumError = true;
 					}
@@ -294,6 +310,9 @@ angular.module('wallpaper', ['firebase'])
 	}
 
 }])
+
+
+
 .controller('Detail', ['$scope', function(s){
 	s.name = 'Time to show a detail Page Derp derp';
 }]);
