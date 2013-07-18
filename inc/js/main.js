@@ -8,8 +8,12 @@ angular.module('wallpaper', ['firebase'])
 		templateUrl : 'views/course.tpl',
 		controller	: 'Course'
 	})
-	.when('/course/:courseCode/rubric/:rubricTitle', {
+	.when('/admin/course/:courseCode/rubric/:rubricTitle', {
 		templateUrl : 'views/adminRubric.tpl',
+		controller	: 'AdminRubric'
+	})
+	.when('/course/:courseCode/rubric/:rubricTitle', {
+		templateUrl : 'views/rubric.tpl',
 		controller	: 'Rubric'
 	})
 	.when('/course/:courseCode/rubric/:rubricTitle/section/:sectionIndex/addItem', {
@@ -94,7 +98,7 @@ angular.module('wallpaper', ['firebase'])
 	}
 }])
 
-.controller('Rubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
+.controller('AdminRubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
 	s.sumError = false;
 	//Add Math to the View
 	s.Math = window.Math;
@@ -143,13 +147,58 @@ angular.module('wallpaper', ['firebase'])
 
 		
 		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + sectionIndex + '/secWeight/';
-		s.secUpdate = angularFireCollection(url, s, 'secUpdate', []);
-
 		var firebase = new Firebase(url);
 		firebase.set(newWeight);
 		console.log(url);
 	}
 
+}])
+
+
+.controller('Rubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
+	
+	//Add Math to the View
+	s.Math = window.Math;
+	// Establish Selected Course
+	s.$watch('courses', function(){
+
+		$timeout(function(){
+
+			//direct nav to this controller does not load in courses... so force it.
+			if(!s.courses[0]) refreshCourses(s,angularFireCollection);
+				for(key in s.courses){
+					if(s.courses[key].courseCode == params.courseCode){
+
+					s.course = s.courses[key];
+					break;
+				}
+			}
+			if(s.course){
+				// If no Rubrics dump to Course View
+				if(!s.course.rubrics){
+					window.location = '#/course/' + s.course.courseCode;
+				} else {
+
+					// Establish Selected Rubric
+					for(rubricKey in s.course.rubrics){
+						if(s.course.rubrics[rubricKey].title == params.rubricTitle){
+							s.rubric = s.course.rubrics[rubricKey];
+							s.rubric.$id = rubricKey;
+						}
+					}
+
+					var sum = 0;
+					for(sectionKey in s.rubric.sections){
+						sum += s.rubric.sections[sectionKey].secWeight * 1;
+					}
+					if(sum != 1){
+						s.sumError = true;
+					}
+					console.log('xxx', sum);
+				}
+			}
+		})
+	});
 }])
 
 .controller('AddItem', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){

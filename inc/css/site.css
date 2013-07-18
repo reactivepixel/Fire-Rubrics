@@ -44,4 +44,4 @@ textarea{
 	color: #808C94;
 }
 
-article a.btn{margin-right: .75em; margin-bottom: .5em}
+article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
