@@ -1,4 +1,4 @@
-<article class="span3">
+<article class="span12 itemBox">
 
 	<hgroup>
 		<h3>{{course.courseCode}} <small>{{course.title}}</small> </h3>
@@ -26,7 +26,7 @@
 				<input type="text" ng-model="GradeOptions" placeholder="100,75,40,0">
 				<span class="help-block">Comma-seperated list of the % options for each line item.</span>
 				
-				<button type="submit" class="btn">Save</button>
+				<button type="submit" class="btn">Add</button>
 			</fieldset>
 		</form>
 

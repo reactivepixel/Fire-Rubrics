@@ -1,4 +1,4 @@
-<h2>{{rubric.title}}</h2>
+<h1>{{rubric.title}}</h1>
 <section ng-repeat="section in rubric.sections">
 	<h3>{{section.title}} <small>{{Math.round(section.secWeight * 100)}}%</small></h3>
 	
@@ -6,15 +6,17 @@
 
 	<!-- Line Items -->
 	<article id="item4" data-itemid="4" ng-repeat="item in section.items">
-		<div class="row-fluid line-item">
-			<div class="span8">
-				<h3>{{item.title}}
-					<small ng-show="item.url" class="non-essential">
-						<a href="{{item.url}}">more info</a>
-					</small>
-				</h3>
-				<div class="span12 non-essential">{{item.content}}</div>
-			</div>		
+		<div class="itemBox">
+			<div class="row-fluid line-item">
+				<div class="span8">
+					<h3>{{item.title}}
+						<small ng-show="item.url" class="non-essential">
+							<a href="{{item.url}}">more info</a>
+						</small>
+					</h3>
+					<div class="span12 non-essential">{{item.content}}</div>
+				</div>		
+			</div>
 		</div>
 	</article>
 </section>

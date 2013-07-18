@@ -12,10 +12,10 @@ a{
 	color: #2ecc71;
 }
 
-article{
+.itemBox{
 	background: #ECF0F1;
 
-	padding: 1em;
+	padding:1.25em 1.75em;
 	margin: 1em 0;
 }
 
@@ -44,4 +44,4 @@ textarea{
 	color: #808C94;
 }
 
-article a.btn{margin-right: .75em;}
+article a.btn{margin-right: .75em; margin-bottom: .5em}

@@ -132,7 +132,7 @@ angular.module('wallpaper', ['firebase'])
 }])
 
 .controller('AddItem', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
-
+	s.alert = false;
 	//Add Math to the View
 	s.Math = window.Math;
 	// Establish Selected Course
@@ -184,6 +184,10 @@ angular.module('wallpaper', ['firebase'])
 		// relying on Title without filter for url friendlyness - needs enhanced
 		//window.location = '#/course/' + s.course.courseCode + '/rubric/' + s.RubricTitle;
 
+		s.alert			= s.ItemTitle;
+		s.ItemTitle 	= '';
+		s.ItemContent 	= '';
+		s.ItemUrl		= '';
 
 
 	}
