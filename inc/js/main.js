@@ -9,7 +9,7 @@ angular.module('wallpaper', ['firebase'])
 		controller	: 'Course'
 	})
 	.when('/course/:courseCode/rubric/:rubricTitle', {
-		templateUrl : 'views/rubric.tpl',
+		templateUrl : 'views/adminRubric.tpl',
 		controller	: 'Rubric'
 	})
 	.when('/course/:courseCode/rubric/:rubricTitle/section/:sectionIndex/addItem', {
