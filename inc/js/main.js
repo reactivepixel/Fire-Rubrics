@@ -113,6 +113,7 @@ angular.module('wallpaper', ['firebase'])
 					if(s.courses[key].courseCode == params.courseCode){
 
 					s.course = s.courses[key];
+					s.course.$id 	= key;
 					break;
 				}
 			}
@@ -137,7 +138,6 @@ angular.module('wallpaper', ['firebase'])
 					if(sum != 1){
 						s.sumError = true;
 					}
-					console.log('xxx', sum);
 				}
 			}
 		})
@@ -169,7 +169,8 @@ angular.module('wallpaper', ['firebase'])
 				for(key in s.courses){
 					if(s.courses[key].courseCode == params.courseCode){
 
-					s.course = s.courses[key];
+					s.course 		= s.courses[key];
+					s.course.$id 	= key;
 					break;
 				}
 			}
@@ -184,7 +185,13 @@ angular.module('wallpaper', ['firebase'])
 						if(s.course.rubrics[rubricKey].title == params.rubricTitle){
 							s.rubric = s.course.rubrics[rubricKey];
 							s.rubric.$id = rubricKey;
+							break;
 						}
+					}
+
+					// inject id's into sections
+					for(sectionKey in s.rubric.sections){
+						s.rubric.sections[sectionKey].$id = sectionKey;
 					}
 
 					var sum = 0;
@@ -194,11 +201,11 @@ angular.module('wallpaper', ['firebase'])
 					if(sum != 1){
 						s.sumError = true;
 					}
-					console.log('xxx', sum);
 				}
 			}
 		})
 	});
+	
 }])
 
 .controller('AddItem', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
@@ -216,6 +223,7 @@ angular.module('wallpaper', ['firebase'])
 					if(s.courses[key].courseCode == params.courseCode){
 
 					s.course = s.courses[key];
+					s.course.$id 	= key;
 					break;
 				}
 			}
@@ -240,7 +248,6 @@ angular.module('wallpaper', ['firebase'])
 	s.addItem = function(){
 
 		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + params.sectionIndex + '/items' ;
-		console.log('xxx', url);
 		s.items = angularFireCollection(url, s, 'items', []);
 		injectItem = {
 			title 			: s.ItemTitle,

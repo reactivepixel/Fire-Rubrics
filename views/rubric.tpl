@@ -1,11 +1,23 @@
 <h1>{{rubric.title}}</h1>
+<div ng-repeat="item in section.items">
+	<p ng-show="item.capture">{{item.title}} [ {{item.capture.gradeOption}} ]</p>
+</div>
+
+<div ng-repeat="section in rubric.sections">
+	<small ng-repeat="item in section.items" ng-show="item.capture">
+		{{item.title}} -- {{item.capture.gradeOption}}
+	</small>
+</div>
+
+
+
 <section ng-repeat="section in rubric.sections">
 	<h3>{{section.title}} 
 		<small ng-click="editorEnabled=!editorEnabled">{{Math.round(section.secWeight * 100)}}%</small>
 	</h3>
 
 	<!-- Line Items -->
-	<article data-itemKey="$index" data-sectionKey="$parent.$index" ng-repeat="item in section.items">
+	<article ng-repeat="item in section.items" ng-hide="item.mainDisp == false">
 		<div class="itemBox">
 			<div class="row-fluid line-item">
 				<div class="span8">
@@ -22,19 +34,23 @@
 					<div class="btn-group" data-itemid="4" data-itemtitle="Branding">
 						
 
-						<a ng-repeat="gradeOption in rubric.gradeOptions" class="btn btn-info" data-baseclass="btn-info" data-score="{{gradeOption}}" href="#">{{gradeOption}}</a>
-
-
-						<!-- <a class="btn btn-info" data-baseclass="btn-info" data-score="75" href="#">75</a>
-						<a class="btn btn-warning" data-baseclass="btn-warning" data-score="40" href="#">40</a>
-						<a class="btn btn-danger" data-baseclass="btn-danger" data-score="0" href="#">0</a> -->
+						<a 	ng-click="
+								item.mainDisp 	= false;
+								item.capture 	= { gradeOption : gradeOption };
+							" 
+							ng-repeat="gradeOption in rubric.gradeOptions" class="btn btn-info" >{{gradeOption}}
+						</a>
 					</div>
 				</div>
-				<p><a href="#" class="addComment" data-itemid="4">Add Comment?</a></p>
+				<p>
+					<a class="addComment" ng-click="item.showComment=true" ng-hide="item.showComment">
+						Add Comment?
+					</a>
+				</p>
 			</aside> <!-- /Grading Btns -->
 
 			
-			<textarea id="comment4" name="comment4" class="span12" style="display: none;"></textarea>
+			<textarea ng-model="item.Comment" ng-show="item.showComment" class="span12"></textarea>
 			
 			</div>
 		</div>
