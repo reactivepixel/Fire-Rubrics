@@ -1,6 +1,19 @@
 <h1>{{rubric.title}}</h1>
 <section ng-repeat="section in rubric.sections">
-	<h3>{{section.title}} <small>{{Math.round(section.secWeight * 100)}}%</small></h3>
+	<h3>{{section.title}} 
+
+
+		<div ng-hide="editorEnabled">
+			<small ng-click="editorEnabled=!editorEnabled">{{Math.round(section.secWeight * 100)}}%</small>
+		</div>
+		<div ng-show="editorEnabled">
+			<input ng-model="section.secWeight">
+			<a ng-click="editorEnabled=!editorEnabled; updateWeight($index,section.secWeight)">Done editing?</a>
+		</div>
+
+
+
+	</h3>
 	
 	<p><a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}/section/{{$index}}/addItem">Add Item to {{section.title}}</a></p>
 

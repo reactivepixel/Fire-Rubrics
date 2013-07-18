@@ -129,6 +129,18 @@ angular.module('wallpaper', ['firebase'])
 			}
 		})
 	});
+
+	s.updateWeight = function(sectionIndex, newWeight){
+
+		
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + sectionIndex + '/secWeight/';
+		s.secUpdate = angularFireCollection(url, s, 'secUpdate', []);
+
+		var firebase = new Firebase(url);
+		firebase.set(newWeight);
+		console.log(url);
+	}
+
 }])
 
 .controller('AddItem', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
