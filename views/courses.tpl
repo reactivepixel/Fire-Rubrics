@@ -1,12 +1,11 @@
 <form ng-submit="addCourse()">
 	<div class="span12">
-		<input type="text" ng-model="input" />
+		<input type="text" ng-model="input" placeholder="Filter"/>
 		<p class="success newRubric" ng-show="input">
 			Add <a href="#/addCourse/{{input}}">{{ input }}</a> to the Course List!
 		</p>
 	</div>
 </form>
-
 
 <article class="span6" ng-repeat="course in courses | filter:input">
 	<div class="itemBox">
