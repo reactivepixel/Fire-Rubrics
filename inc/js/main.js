@@ -189,6 +189,14 @@ angular.module('wallpaper', ['firebase'])
 		firebase.update({ title: s.rubric.title });
 
 	}
+
+	s.updateGradeOptions = function(){
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
+		var firebase = new Firebase(url);
+		firebase.update({ gradeOptions: s.NewGradeOptions.split(',') });
+
+	}
+
 	s.deleteRubric = function(data){
 
 		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;

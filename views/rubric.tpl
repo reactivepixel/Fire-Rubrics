@@ -28,7 +28,7 @@
 					<!-- Grading Btns -->
 			<aside class="span4 item-grade-wrapper non-essential">
 				<div class="btn-toolbar">
-					<div class="btn-group" data-itemid="4" data-itemtitle="Branding">
+					<div class="btn-group">
 						
 
 						<a 	ng-click="

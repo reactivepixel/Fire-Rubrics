@@ -14,6 +14,23 @@
 	<a ng-click="deleteRubric(rubric)">[delete]</a>
 </div>
 
+<section>
+	
+
+	<div ng-hide="gradeOptionsEditor">
+		<h3 ng-click="gradeOptionsEditor=!gradeOptionsEditor">Grade Options</h3>
+	</div>
+	<div ng-show="gradeOptionsEditor">
+		<input ng-model="NewGradeOptions">
+		<small ng-click="gradeOptionsEditor=!gradeOptionsEditor; updateGradeOptions()">Done editing?</small>
+	</div>
+
+
+	<div class="btn-group">
+		<a ng-repeat="gradeOption in rubric.gradeOptions" class="btn" >{{gradeOption}}</a>
+	</div>
+</section>
+
 <section ng-repeat="section in rubric.sections">
 	<h3>{{section.title}} 
 
