@@ -3,16 +3,22 @@
   <strong>Caution!</strong> Changes you make go live instantly!
 </div>
 
-<article class="itemBox">
+<article>
+	<div class="itemBox">
+		<hgroup>
+			
+				<div ng-hide="courseEditor">
+					<h3 ng-click="courseEditor=!courseEditor">{{course.courseCode}} <small>{{course.title}}</small></h3>
+				</div>
+				<div ng-show="courseEditor">
+					<input ng-model="course.courseCode"> <input ng-model="course.title">
+					<small ng-click="courseEditor=!courseEditor; updateCourse(course)">Done editing?</small>
+				</div>
 
-	<hgroup>
-		<h3>{{course.courseCode}} <small>{{course.title}}</small> </h3>
-		<p ng-show="course.rubrics">Edit Rubrics</p>
-	</hgroup>
-	
-	<p>
+		</hgroup>
 		<a href="#/admin/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-warning">{{rubric.title}}</a>
-	</p>
+		
+	</div>
 </article>
 
 	<aside>

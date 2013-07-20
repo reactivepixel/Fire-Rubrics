@@ -99,6 +99,14 @@ angular.module('wallpaper', ['firebase'])
 		// relying on Title without filter for url friendlyness - needs enhanced
 		window.location = '#/course/' + s.course.courseCode + '/rubric/' + s.RubricTitle;
 	}
+
+	s.updateCourse = function(data){
+
+		var url = 'https://prorubrics.firebaseio.com/courses/' + data.$id;
+		var firebase = new Firebase(url);
+		firebase.update({ courseCode: data.courseCode, title: data.title });
+		console.log(url);
+	}
 }])
 
 .controller('AdminRubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){

@@ -13,7 +13,7 @@
 		</div>
 		<div ng-show="editorEnabled">
 			<input ng-model="section.secWeight">
-			<a ng-click="editorEnabled=!editorEnabled; updateWeight($index,section.secWeight)">Done editing?</a>
+			<small ng-click="editorEnabled=!editorEnabled; updateWeight($index,section.secWeight)">Done editing?</small>
 		</div>
 
 
