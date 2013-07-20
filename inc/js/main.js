@@ -171,7 +171,15 @@ angular.module('wallpaper', ['firebase'])
 		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + sectionIndex + '/secWeight/';
 		var firebase = new Firebase(url);
 		firebase.set(newWeight);
+	}
+
+	s.updateRubric = function(data){
+
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
+		var firebase = new Firebase(url);
+		firebase.update({ title: s.rubric.title });
 		console.log(url);
+
 	}
 
 }])
