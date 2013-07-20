@@ -97,7 +97,7 @@ angular.module('wallpaper', ['firebase'])
 		})
 		
 		// relying on Title without filter for url friendlyness - needs enhanced
-		window.location = '#/course/' + s.course.courseCode + '/rubric/' + s.RubricTitle;
+		window.location = '#/admin/course/' + s.course.courseCode + '/rubric/' + s.RubricTitle;
 	}
 
 	s.updateCourse = function(data){
@@ -106,6 +106,15 @@ angular.module('wallpaper', ['firebase'])
 		var firebase = new Firebase(url);
 		firebase.update({ courseCode: data.courseCode, title: data.title });
 		console.log(url);
+	}
+	s.deleteCourse = function(){
+
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id ;
+		var firebase = new Firebase(url);
+		firebase.remove();
+		s.course = {};
+		window.location = '#/';
+
 	}
 }])
 
@@ -178,7 +187,15 @@ angular.module('wallpaper', ['firebase'])
 		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
 		var firebase = new Firebase(url);
 		firebase.update({ title: s.rubric.title });
-		console.log(url);
+
+	}
+	s.deleteRubric = function(data){
+
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
+		var firebase = new Firebase(url);
+		firebase.remove();
+		s.rubric = {};
+		window.location = '#/course/' + s.course.courseCode;
 
 	}
 

@@ -13,6 +13,7 @@
 				<div ng-show="courseEditor">
 					<input ng-model="course.courseCode"> <input ng-model="course.title">
 					<small ng-click="courseEditor=!courseEditor; updateCourse(course)">Done editing?</small>
+					<a ng-click="deleteCourse()">[delete]</a>
 				</div>
 
 		</hgroup>
