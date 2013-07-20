@@ -32,11 +32,11 @@
 				
 				<label>Section Titles</label>
 				<input type="text" ng-model="SectionTitles" placeholder="Design,Branding,Other">
-				<span class="help-block">Comma-seperated list.</span>
+				<span class="help-block">Comma-separated list.</span>
 
 				<label>Grade Options</label>
 				<input type="text" ng-model="GradeOptions" placeholder="100,75,40,0">
-				<span class="help-block">Comma-seperated list of the % options for each line item.</span>
+				<span class="help-block">Comma-separated list of the % options for each line item.</span>
 				
 				<button type="submit" class="btn">Add</button>
 			</fieldset>
