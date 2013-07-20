@@ -1,4 +1,4 @@
-<p><a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}">Back to Rubric View</a></p>
+<p><a href="#/admin/course/{{course.courseCode}}/rubric/{{rubric.title}}">Back to Rubric View</a></p>
 
 <div ng-show="alert" class="alert alert-success">
   <button type="button" class="close" data-dismiss="alert">&times;</button>

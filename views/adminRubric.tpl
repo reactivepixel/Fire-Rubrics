@@ -32,8 +32,16 @@
 </section>
 
 <section ng-repeat="section in rubric.sections">
-	<h3>{{section.title}} 
+	<h3> </h3>
 
+	<div ng-hide="section.Editor">
+		<h3 ng-click="section.Editor=!section.Editor">{{section.title}}</h3>
+	</div>
+	<div ng-show="section.Editor">
+		<input ng-model="section.title">
+		<small ng-click="section.Editor=!section.Editor; updateSection({index: $index, title:section.title})">Done editing?</small>
+		<a ng-click="section.Editor=!section.Editor; deleteSection({ index: $index })">[delete]</a>
+	</div>
 
 		<div ng-hide="editorEnabled">
 			<small ng-click="editorEnabled=!editorEnabled">{{Math.round(section.secWeight * 100)}}%</small>
@@ -45,7 +53,7 @@
 
 
 
-	</h3>
+	
 	
 	<p><a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}/section/{{$index}}/addItem">Add Item to {{section.title}}</a></p>
 
@@ -54,12 +62,31 @@
 		<div class="itemBox">
 			<div class="row-fluid line-item">
 				<div class="span8">
-					<h3>{{item.title}}
+					
+
+		<div ng-hide="item.Editor">
+			<h3 ng-click="item.Editor=!item.Editor">
+						{{item.title}}
 						<small ng-show="item.url" class="non-essential">
 							<a href="{{item.url}}">more info</a>
 						</small>
 					</h3>
 					<div class="span12 non-essential" ng-bind-html-unsafe="item.markdown"></div>
+		</div>
+		<div ng-show="item.Editor">
+			<label>Title</label>
+			<input type="text" ng-model="item.title" placeholder="Design Principals" />
+			
+			<label>Wiki Link</label>
+			<input type="text" ng-model="item.url" placeholder="http://wddbs.com/wiki/Rubric#Design_Principles" />
+			
+			<label>Description</label>
+			<textarea class="span6" rows="9" ng-model="item.content" placeholder="50 to 75 Words"></textarea>
+			<small ng-click="item.Editor=!item.Editor; updateItem({item:item, section:section})">Done editing?</small>
+			<a ng-click="item.Editor=!item.Editor; deleteItem({item:item, section:section})">[delete]</a>
+		</div>
+
+
 				</div>		
 			</div>
 		</div>

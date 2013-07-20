@@ -161,6 +161,7 @@ angular.module('wallpaper', ['firebase'])
 
 						for(itemKey in s.rubric.sections[sectionKey].items){
 							var thisItem = s.rubric.sections[sectionKey].items[itemKey];
+							s.rubric.sections[sectionKey].items[itemKey].$id = itemKey;	
 							thisItem.markdown = converter.makeHtml( thisItem.content );
 						}
 					}
@@ -190,10 +191,42 @@ angular.module('wallpaper', ['firebase'])
 
 	}
 
+
+	s.updateSection = function(data){
+
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + data.index;
+		var firebase = new Firebase(url);
+		firebase.update({ title: data.title });
+
+	}
+
+	s.deleteSection = function(data){
+
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + data.index;
+		var firebase = new Firebase(url);
+		firebase.remove();
+
+	}
+
 	s.updateGradeOptions = function(){
 		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
 		var firebase = new Firebase(url);
 		firebase.update({ gradeOptions: s.NewGradeOptions.split(',') });
+
+	}
+
+	s.updateItem = function(data){
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + data.section.$id + '/items/' + data.item.$id;
+		var firebase = new Firebase(url);
+		firebase.update({ title: data.item.title, content: data.item.content, url: data.item.url });
+
+	}
+
+	s.deleteItem = function(data){
+		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id + '/sections/' + data.section.$id + '/items/' + data.item.$id;
+		var firebase = new Firebase(url);
+		firebase.remove();
+		delete s.rubric.sections[data.section.$id].items[data.item.$id];
 
 	}
 
