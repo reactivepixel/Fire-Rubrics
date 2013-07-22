@@ -3,13 +3,14 @@ angular.module('wallpaper', ['firebase'])
 	r
 	.when('/',{
 		templateUrl : 'views/courses.tpl',
+		controller	: 'Courses'
 	})
 	.when('/course/:courseCode/', {
-		templateUrl : 'views/course.tpl',
+		templateUrl : 'views/adminCourse.tpl',
 		controller	: 'Course'
 	})
 	.when('/course/:courseCode/:addNew', {
-		templateUrl : 'views/course.tpl',
+		templateUrl : 'views/adminCourse.tpl',
 		controller	: 'Course'
 	})
 	.when('/admin/course/:courseCode/rubric/:rubricTitle', {
@@ -25,19 +26,16 @@ angular.module('wallpaper', ['firebase'])
 		controller	: 'AddItem'
 	})
 	.when('/addCourse/:courseCode',{
-		templateUrl : 'views/formCourse.tpl',
+		templateUrl : 'views/addCourse.tpl',
 		controller	: 'AddCourse'
 	})
 	.when('/addSection/:courseCode/:rubricTitle/:gradeOptions',{
-		templateUrl : 'views/course.tpl',
+		templateUrl : 'views/adminCourse.tpl',
 	})
 
 }])
 
 .controller('Core', ['$scope', 'angularFireCollection', 
-
-
-
 
 	function myCtrl(s,angularFireCollection){
 		var url = 'https://prorubrics.firebaseio.com/courses';
@@ -323,10 +321,7 @@ angular.module('wallpaper', ['firebase'])
 				}
 			}
 		}
-
 		s.progress.complete = Math.round(audit.completedItems / audit.totalItems * 100);
-
-		console.log('Here we go', s.progress.complete);
 	}
 }])
 
@@ -393,6 +388,11 @@ angular.module('wallpaper', ['firebase'])
 
 }])
 
+.controller('Courses', ['$scope', function(s){
+	s.newCourse = function(){
+		window.location = '#/addCourse/' +s.input;
+	}
+}])
 
 
 .controller('Detail', ['$scope', function(s){
