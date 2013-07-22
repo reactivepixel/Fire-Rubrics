@@ -13,4 +13,4 @@ _Must be run from localhost or 127.0.0.1 locally._
 _For the current release tests are not implemented._
 
 ## Instructions for Usage
--Sounds like a good section that will be written and include video demos.-
+_Sounds like a good section that will be written and include video demos._
