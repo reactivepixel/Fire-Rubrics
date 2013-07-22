@@ -1,18 +1,24 @@
-<h1>{{rubric.title}}</h1>
+<div class="rubric">
+	<hgroup>
+		<h2 class="label label-success label-large">
+			
+		
+					{{Math.round(Audit.totalScore)}} pts.
+				
+
+		</h2>
+		<h3>{{rubric.title}}</h3>
+		<h4>{{course.courseCode}} - {{course.title}}</h4>
+
+	</hgroup>
+</div>
 <div ng-repeat="item in section.items">
 	<p ng-show="item.capture">{{item.title}} [ {{item.capture.gradeOption}} ]</p>
 </div>
 
 <div id="storage" class="palette-clouds">
 	
-
-
-
 <section ng-repeat="section in rubric.sections" ng-show="progress.captureDisp">
-	<h3>{{section.title}} 
-		<small ng-click="editorEnabled=!editorEnabled">{{Math.round(section.secWeight * 100)}}%</small>
-	</h3>
-
 	<!-- Line Items -->
 	<article ng-repeat="item in section.items" ng-show="item.capture">
 		<div class="itemBox">
@@ -64,9 +70,17 @@
 
 
 <section ng-repeat="section in rubric.sections">
-	<h3>{{section.title}} 
-		<small ng-click="editorEnabled=!editorEnabled">{{Math.round(section.secWeight * 100)}}%</small>
-	</h3>
+	<div class="sectionTitle span12">
+	
+			<p span="brand">
+				{{section.title}} 
+				<small ng-show="section.score">
+					{{Math.round(section.score)}}
+					 of 
+					{{Math.round(section.secWeight * 100)}} pts.
+				</small>
+			</p>
+	</div>
 
 	<!-- Line Items -->
 	<article ng-repeat="item in section.items" ng-hide="item.mainDisp == false">

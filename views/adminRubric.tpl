@@ -3,12 +3,10 @@
   <strong>Warning!</strong> Sum of all Sections needs to be 100%.
 </div>
 
-
-
 <div ng-hide="titleEditor">
 	<h4 ng-click="titleEditor=!titleEditor" class="editor">{{rubric.title}}</h4>
-	
 </div>
+
 <div ng-show="titleEditor">
 	<input ng-model="rubric.title">
 	<small ng-click="titleEditor=!titleEditor; updateRubric({ rubric: rubric, course:course })">Done editing?</small>
@@ -16,8 +14,6 @@
 </div>
 
 <section>
-	
-
 	<div ng-hide="gradeOptionsEditor">
 		<h3 ng-click="gradeOptionsEditor=!gradeOptionsEditor" class="editor">Grade Options</h3>
 	</div>
@@ -25,7 +21,6 @@
 		<input ng-model="NewGradeOptions">
 		<small ng-click="gradeOptionsEditor=!gradeOptionsEditor; updateGradeOptions()">Done editing?</small>
 	</div>
-
 
 	<div class="btn-group">
 		<a ng-repeat="gradeOption in rubric.gradeOptions" class="btn" >{{gradeOption}}</a>

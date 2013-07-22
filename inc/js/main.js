@@ -249,6 +249,22 @@ angular.module('wallpaper', ['firebase'])
 }])
 
 .controller('Rubric', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
+	
+	// Audit
+	s.Audit = {
+				totalItems 		: 0,
+				completedItems 	: 0,
+				totalScore		: 0
+			}
+
+	
+
+
+
+
+
+
+
 	s.progress.active = true;
 	//Add Math to the View
 	s.Math = window.Math;
@@ -292,6 +308,9 @@ angular.module('wallpaper', ['firebase'])
 						for(itemKey in s.rubric.sections[sectionKey].items){
 							var thisItem = s.rubric.sections[sectionKey].items[itemKey];
 							thisItem.markdown = converter.makeHtml( thisItem.content );
+
+							// Add tally to the total # of items
+							s.Audit.totalItems++;
 						}
 					}
 
@@ -302,26 +321,36 @@ angular.module('wallpaper', ['firebase'])
 				}
 			}
 		})
+
 	});
 	s.onGrade = function(){
 
-		var audit = {
-				totalItems 		: 0,
-				completedItems 	: 0,
-			}
+		var totalScore = 0;
+		s.Audit.completedItems = 0; // Reset for tally
 		for(sectionKey in s.rubric.sections){
 			var section = s.rubric.sections[sectionKey];
+			var secScore = 0;
+			section.totalItems = 0;
+			for(itemKey in section.items){
+				section.totalItems++;
+			}
 			for(itemKey in section.items){
 				var item = section.items[itemKey];
-				audit.totalItems++;
 				
 				// Check if item was captured
 				if(item.capture){
-					audit.completedItems++;
+					s.Audit.completedItems++;
+					var itemValue	= (item.capture.gradeOption * 1 ) * (section.secWeight / section.totalItems);
+					secScore 		+= itemValue;
+					totalScore 		+= itemValue;
 				}
 			}
+			s.rubric.sections[sectionKey].score = secScore;
 		}
-		s.progress.complete = Math.round(audit.completedItems / audit.totalItems * 100);
+		s.Audit.totalScore = totalScore;
+		s.progress.complete = Math.round(s.Audit.completedItems / s.Audit.totalItems * 100);
+
+		console.log(s.Audit.totalItems, s.Audit.completedItems);
 	}
 }])
 

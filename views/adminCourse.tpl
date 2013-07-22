@@ -8,16 +8,12 @@
 		<hgroup>
 			
 				<div ng-hide="courseEditor" class="editor">
-					
-
-					
-						<hgroup ng-click="courseEditor=!courseEditor" class="warning">
-							<h3>{{course.courseCode}}</h3>
-							<h4>{{course.title}}</h4>
-						</hgroup>
-					
-
+					<hgroup ng-click="courseEditor=!courseEditor" class="warning">
+						<h3>{{course.courseCode}}</h3>
+						<h4>{{course.title}}</h4>
+					</hgroup>
 				</div>
+				
 				<div ng-show="courseEditor">
 					<input ng-model="course.courseCode"> <input ng-model="course.title">
 					<div>

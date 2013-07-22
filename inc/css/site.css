@@ -53,17 +53,37 @@ textarea{
 
 article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
 
-.itemBox hgroup{
-	margin-bottom: 1em;
-}
-.itemBox hgroup h3,.itemBox hgroup h4{
-	padding:0;
-	color: #34495e;
-	margin:0;
-}
-.itemBox hgroup h4{
-	font-size: 1em;
-}
+/* Item Box */
+	hgroup{
+		margin-bottom: 1em;
+	}
+	hgroup h3,hgroup h4{
+		padding:0;
+		color: #34495e;
+		margin:0;
+	}
+	hgroup h4{
+		font-size: 1em;
+	}
+
+/* Rubric*/
+	.rubric hgroup h3{
+		font-size: 2em;
+	}
+	.sectionTitle{
+		background-color: #34495e;
+		color: #677786;
+		padding: 1em 1em .5em 1em;
+	}
+	#storage article p{
+		font-size: 1em;
+	}
+	.sectionTitle small{
+		float: right;
+	}
+	.rubric h2{
+		float: right;
+	}
 
 .editor:hover{
 	background-color: #F1E9C6;
