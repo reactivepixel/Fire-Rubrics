@@ -22,26 +22,28 @@
 	</div>
 </article>
 
-	<aside>
+<aside ng-hide="addNew">
+	<a ng-click="addNew=true">Add Rubric</a>
+</aside>
 
-		<form ng-submit="addRubric()">
-			<fieldset>
-				<legend>Add New Rubric</legend>
-				<label>Rubric Name</label>
-				<input type="text" ng-model="RubricTitle" placeholder="Main Project">
-				
-				<label>Section Titles</label>
-				<input type="text" ng-model="SectionTitles" placeholder="Design,Branding,Other">
-				<span class="help-block">Comma-separated list.</span>
+<aside ng-show="addNew">
 
-				<label>Grade Options</label>
-				<input type="text" ng-model="GradeOptions" placeholder="100,75,40,0">
-				<span class="help-block">Comma-separated list of the % options for each line item.</span>
-				
-				<button type="submit" class="btn">Add</button>
-			</fieldset>
-		</form>
+	<form ng-submit="addRubric()">
+		<fieldset>
+			<legend>Adding New Rubric</legend>
+			<label>Rubric Name</label>
+			<input type="text" ng-model="RubricTitle" placeholder="Main Project">
+			
+			<label>Section Titles</label>
+			<input type="text" ng-model="SectionTitles" placeholder="Design,Branding,Other">
+			<span class="help-block">Comma-separated list.</span>
 
-	</aside>
+			<label>Grade Options</label>
+			<input type="text" ng-model="GradeOptions" placeholder="100,75,40,0">
+			<span class="help-block">Comma-separated list of the % options for each line item.</span>
+			
+			<button type="submit" class="btn">Add</button>
+		</fieldset>
+	</form>
 
-</article>
+</aside>

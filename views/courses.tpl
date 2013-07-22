@@ -1,10 +1,14 @@
 <form ng-submit="addCourse()">
-	<div class="span12">
+	<fieldset class="span12">
+		<legend>Select a Course or Rubric</legend>
+	
+	
 		<input type="text" ng-model="input" placeholder="Filter"/>
-		<p class="success newRubric" ng-show="FilteredList.length = 0">
+		<p class="success newRubric">
 			Add <a href="#/addCourse/{{input}}">{{ input }}</a> to the Course List!
 		</p>
-	</div>
+	
+	</fieldset>
 </form>
 
 <article class="span6" ng-repeat="course in courses | filter:input" ng-model="FilteredList">
@@ -15,7 +19,7 @@
 			</h3>
 		</a>
 
-		<p>View Rubric</p>
+		<p ng-show="rubrics">Rubrics</p>
 		<a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-info">
 			{{rubric.title}}
 		</a>

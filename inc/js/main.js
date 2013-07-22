@@ -4,7 +4,11 @@ angular.module('wallpaper', ['firebase'])
 	.when('/',{
 		templateUrl : 'views/courses.tpl',
 	})
-	.when('/course/:courseCode', {
+	.when('/course/:courseCode/', {
+		templateUrl : 'views/course.tpl',
+		controller	: 'Course'
+	})
+	.when('/course/:courseCode/:addNew', {
 		templateUrl : 'views/course.tpl',
 		controller	: 'Course'
 	})
@@ -57,13 +61,17 @@ angular.module('wallpaper', ['firebase'])
         		title			: s.title,
         	});
 		s.ID = res.path.m[1];
-		window.location = '#/course/' + s.courseCode;
+		window.location = '#/course/' + s.courseCode + '/addNew';
 	}
 }])
 
 .controller('Course', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
 	//s.course = { courseCode: params.courseCode };
 	
+	if(params.addNew){
+		s.addNew = true;
+	}
+
 	s.$watch('courses.length', function(){
 		$timeout(function(){
 
