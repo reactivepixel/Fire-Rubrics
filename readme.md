@@ -1,4 +1,4 @@
-# ProRubrics (v. Alpha)
+# ProRubrics
 _Streamline your grading process with the ProRubrics System._
 
 ## Installation Setup
