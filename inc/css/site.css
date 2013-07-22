@@ -45,3 +45,25 @@ textarea{
 }
 
 article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
+
+
+.editor{
+	
+}
+.itemBox hgroup{
+	margin-bottom: 1em;
+}
+.itemBox hgroup h3,.itemBox hgroup h4{
+	padding:0;
+	color: #34495e;
+	margin:0;
+}
+.itemBox hgroup h4{
+	font-size: 1em;
+}
+
+/* Flat Overrides*/
+h1{font-size: 4em;}
+.tagsinput .label, .tagsinput .btn{
+	margin-bottom: .5em;
+}

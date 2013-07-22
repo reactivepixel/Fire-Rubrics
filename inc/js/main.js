@@ -392,6 +392,12 @@ angular.module('wallpaper', ['firebase'])
 	s.newCourse = function(){
 		window.location = '#/addCourse/' +s.input;
 	}
+	s.rubricActivate = function(data){
+		window.location = '#/course/' + data.course.courseCode + '/rubric/' + data.rubric.title;
+	}
+	s.newRubric = function(data){
+		window.location = '#/course/' + data.course.courseCode + '/addNew';
+	}
 }])
 
 

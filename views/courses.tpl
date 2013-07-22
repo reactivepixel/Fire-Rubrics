@@ -21,16 +21,20 @@
 	<article class="span6" ng-repeat="course in courses | filter:input" ng-model="FilteredList">
 		<div class="itemBox">
 			<a href="#/course/{{course.courseCode}}" class="info">			
-				<h3>
-					{{course.courseCode}} <small>{{course.title}}</small>
-				</h3>
+				<hgroup>
+					<h3>{{course.courseCode}}</h3>
+					<h4>{{course.title}}</h4>
+				</hgroup>
 			</a>
 
-			<p ng-show="rubrics">Rubrics</p>
-			<a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-standard btn-info">
-				<i class="fui-list-numbered"></i>
-				{{rubric.title}}
-			</a>
+				
+
+				<a ng-click="rubricActivate({ course: course, rubric:rubric })" ng-repeat="rubric in course.rubrics" class="btn btn-info">
+					{{rubric.title}}
+				</a>
+				<a class="btn btn-standard btn-primary" ng-click="newRubric({ course: course })">
+					<span class="fui-plus"></span>
+				</a>
 		</div>
 	</article>
 </div>

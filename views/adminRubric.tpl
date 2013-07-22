@@ -6,7 +6,8 @@
 
 
 <div ng-hide="titleEditor">
-	<h1 ng-click="titleEditor=!titleEditor">{{rubric.title}}</h1>
+	<h4 ng-click="titleEditor=!titleEditor" class="">{{rubric.title}}</h4>
+	
 </div>
 <div ng-show="titleEditor">
 	<input ng-model="rubric.title">

@@ -8,22 +8,25 @@
 		<hgroup>
 			
 				<div ng-hide="courseEditor" class="editor">
-					<h3 ng-click="courseEditor=!courseEditor">{{course.courseCode}} <small>{{course.title}}</small></h3>
+					<h3 ng-click="courseEditor=!courseEditor" class="warning">{{course.courseCode}} <small>{{course.title}}</small></h3>
 				</div>
 				<div ng-show="courseEditor">
 					<input ng-model="course.courseCode"> <input ng-model="course.title">
-					<small ng-click="courseEditor=!courseEditor; updateCourse(course)">Done editing?</small>
-					<a ng-click="deleteCourse()">[delete]</a>
+					<div>
+						<a class="btn btn-success btn-mini" ng-click="courseEditor=!courseEditor; updateCourse(course)">Done editing?</a>
+						<a class="btn btn-danger btn-mini" ng-click="deleteCourse()"><span class="fui-trash fui-trash"></span></a>
+					</div>
 				</div>
 
 		</hgroup>
-		<a href="#/admin/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-warning">{{rubric.title}}</a>
-		
+			<div class="tagsinput  tagsinput-warning" style="height: 100%;">
+		<a href="#/admin/course/{{course.courseCode}}/rubric/{{rubric.title}}" ng-repeat="rubric in course.rubrics" class="btn btn-warning btn-standard"><span class="fui-new"></span>&nbsp;&nbsp;{{rubric.title}}</a>
+		</div>
 	</div>
 </article>
 
 <aside ng-hide="addNew">
-	<a ng-click="addNew=true">Add Rubric</a>
+	<a class="btn btn-primary btn-small" ng-click="addNew=true"><span class="fui-plus"></span>&nbsp;&nbsp;Rubric</a>
 </aside>
 
 <aside ng-show="addNew">
@@ -41,7 +44,7 @@
 			<label>Grade Options</label>
 			<input type="text" ng-model="GradeOptions" placeholder="100,75,40,0">
 			
-			<button type="submit" class="btn">Add</button>
+			<button type="submit" class="btn btn-standard btn-success"><span class="fui-plus"></span>&nbsp;&nbsp;Add</button>
 		</fieldset>
 	</form>
 
