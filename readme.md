@@ -14,3 +14,11 @@ _For the current release tests are not implemented._
 
 ## Instructions for Usage
 _Sounds like a good section that will be written and include video demos._
+
+## Technology Used
+_What's under the hood?_
+
+- AngularJS (MVC)
+- Firebase (Database)
+- Twitter Bootstrap (UI)
+- Flat UI (UI)
