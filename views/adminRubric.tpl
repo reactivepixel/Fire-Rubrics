@@ -28,8 +28,6 @@
 </section>
 
 <section ng-repeat="section in rubric.sections">
-	<h3> </h3>
-
 	<div ng-hide="section.Editor">
 		<h3 ng-click="section.Editor=!section.Editor" class="editor">{{section.title}}</h3>
 	</div>
@@ -39,22 +37,19 @@
 		<a ng-click="section.Editor=!section.Editor; deleteSection({ index: $index })">[delete]</a>
 	</div>
 
-		<div ng-hide="editorEnabled">
-			<small ng-click="editorEnabled=!editorEnabled" class="editor">{{Math.round(section.secWeight * 100)}}%</small>
-		</div>
-		<div ng-show="editorEnabled">
-			<input ng-model="section.secWeight">
-			<small ng-click="editorEnabled=!editorEnabled; updateWeight($index,section.secWeight)">Done editing?</small>
-		</div>
+	<div ng-hide="editorEnabled">
+		<small ng-click="editorEnabled=!editorEnabled" class="editor">{{Math.round(section.secWeight * 100)}}%</small>
+	</div>
+	<div ng-show="editorEnabled">
+		<input ng-model="section.secWeight">
+		<small ng-click="editorEnabled=!editorEnabled; updateWeight($index,section.secWeight)">Done editing?</small>
+	</div>
 
-
-
-	
 	
 	<p><a href="#/course/{{course.courseCode}}/rubric/{{rubric.title}}/section/{{$index}}/addItem">Add Item to {{section.title}}</a></p>
 
 	<!-- Line Items -->
-	<article id="item4" data-itemid="4" ng-repeat="item in section.items">
+	<article ng-repeat="item in section.items">
 		<div class="itemBox">
 			<div class="row-fluid line-item">
 				<div class="span8">

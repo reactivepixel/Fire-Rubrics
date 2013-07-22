@@ -20,5 +20,6 @@ _What's under the hood?_
 
 - AngularJS (MVC)
 - Firebase (Database)
+- AngelFire
 - Twitter Bootstrap (UI)
 - Flat UI (UI)
