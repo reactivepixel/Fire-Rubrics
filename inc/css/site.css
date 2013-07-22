@@ -1,3 +1,10 @@
+*:hover,*:active{
+
+  -webkit-transition: all 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+       -o-transition: all 0.3s ease-out;  /* Opera 10.50–12.00 */
+          transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
 a{
 	text-decoration: none;
 } a:hover, a:active{
@@ -46,10 +53,6 @@ textarea{
 
 article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
 
-
-.editor{
-	
-}
 .itemBox hgroup{
 	margin-bottom: 1em;
 }
@@ -60,6 +63,14 @@ article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
 }
 .itemBox hgroup h4{
 	font-size: 1em;
+}
+
+.editor:hover{
+	background-color: #F1E9C6;
+}
+
+.row article .itemBox:hover{
+	background-color: #D2D6D7;
 }
 
 /* Flat Overrides*/

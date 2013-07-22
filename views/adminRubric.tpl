@@ -6,7 +6,7 @@
 
 
 <div ng-hide="titleEditor">
-	<h4 ng-click="titleEditor=!titleEditor" class="">{{rubric.title}}</h4>
+	<h4 ng-click="titleEditor=!titleEditor" class="editor">{{rubric.title}}</h4>
 	
 </div>
 <div ng-show="titleEditor">
@@ -19,7 +19,7 @@
 	
 
 	<div ng-hide="gradeOptionsEditor">
-		<h3 ng-click="gradeOptionsEditor=!gradeOptionsEditor">Grade Options</h3>
+		<h3 ng-click="gradeOptionsEditor=!gradeOptionsEditor" class="editor">Grade Options</h3>
 	</div>
 	<div ng-show="gradeOptionsEditor">
 		<input ng-model="NewGradeOptions">
@@ -36,7 +36,7 @@
 	<h3> </h3>
 
 	<div ng-hide="section.Editor">
-		<h3 ng-click="section.Editor=!section.Editor">{{section.title}}</h3>
+		<h3 ng-click="section.Editor=!section.Editor" class="editor">{{section.title}}</h3>
 	</div>
 	<div ng-show="section.Editor">
 		<input ng-model="section.title">
@@ -45,7 +45,7 @@
 	</div>
 
 		<div ng-hide="editorEnabled">
-			<small ng-click="editorEnabled=!editorEnabled">{{Math.round(section.secWeight * 100)}}%</small>
+			<small ng-click="editorEnabled=!editorEnabled" class="editor">{{Math.round(section.secWeight * 100)}}%</small>
 		</div>
 		<div ng-show="editorEnabled">
 			<input ng-model="section.secWeight">
@@ -66,7 +66,7 @@
 					
 
 		<div ng-hide="item.Editor">
-			<h3 ng-click="item.Editor=!item.Editor">
+			<h3 ng-click="item.Editor=!item.Editor" class="editor">
 						{{item.title}}
 						<small ng-show="item.url" class="non-essential">
 							<a href="{{item.url}}">more info</a>
