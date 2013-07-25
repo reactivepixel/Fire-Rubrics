@@ -1,3 +1,5 @@
+				
+<div id="hiddenReport" ng-show="false" ng-include src="tarURL"></div>
 <div class="rubric">
 	<hgroup>
 		<h2 class="label label-success label-large">
@@ -74,37 +76,18 @@
 		Otherwise, copy the content below and paste it as the comment in FSO to give the student your detailed audit of their project.
 		
 	</p><div class="demo-content ptl">
-            <textarea rows="3" class="span12"><hgroup>
-	<h1>{{rubric.title}}</h1>
-	<h2>{{course.courseCode}} - {{course.title}}</h2>	
-</hgroup>
-
-<aside>
-	You scored <strong>{{Math.round(Audit.totalScore * 100)}}</strong> out of 100 pts. possible.
-</aside>
-
-<section>
-	<h3>Assessment Breakdown</h3>
-	<p>Aesthetics</p>
-	
-	<div ng-repeat="section in course.sections">
-		
-		<h5>{{section.title}}</h5>
-		<article ng-repeat="item in section.items">
-			<header>
-				<strong><a href="{{item.url}}">{{item.title}}</a></strong>
-				- {{Math.round(item.capture.gradeOption) * 100}}%
-			</header>
-			<p>{{item.content}}</p>
-		</article>
-	</div>
-</section>
+            
 
 
 
-</textarea>
+            <textarea rows="3" class="span12">{{Report}}</textarea>
+
+
+
+
+
           </div>
-	<!-- <a class="btn btn-info btn-wide">Copy to Clipbard</a> -->
+	<a class="btn btn-info btn-wide">Copy to Clipbard</a>
 </div>
 
 

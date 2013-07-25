@@ -1,25 +1,25 @@
 <hgroup>
-	<h1>Master Mobile Project</h1>
-	<h2>MDD - Mobile Device Deployment</h2>	
+	<h1>{{rubric.title}}</h1>
+	<h2>{{course.courseCode}} - {{course.title}}</h2>	
 </hgroup>
 
 <aside>
-	You scored {{Audit.totalScore}} out of 100 pts.
+	You scored <strong>{{Audit.totalScore}}</strong> out of 100 pts. possible.
 </aside>
 
 <section>
 	<h3>Assessment Breakdown</h3>
 	<p>Aesthetics</p>
-	<article>
-		<header><strong><a href="http://wddns.com/wiki/branding">Branding</a></strong> [8.5 pts of 8.5 pts]</header>
-		<p>Great work! This really stands out</p>
-	</article>
-	<article>
-		<header><strong>User Flow</strong> [8.5 pts of 8.5 pts]</header>
-		<p>Great work! This really stands out</p>
-	</article>
-	<article>
-		<header><strong>Information Hierarchy</strong> [8.5 pts of 8.5 pts]</header>
-		<p>Great work! This really stands out</p>
-	</article>
+	
+	<div ng-repeat="section in rubric.sections">
+		
+		<h5>{{section.title}}</h5>
+		<article ng-repeat="item in section.items">
+			<header>
+				<strong><a href="{{item.url}}">{{item.title}}</a></strong>
+				- {{item.capture.gradeOption}}%
+			</header>
+			<p>{{item.content}}</p>
+		</article>
+	</div>
 </section>

@@ -320,6 +320,9 @@ angular.module('proRubrics', ['firebase'])
 				totalScore		: 0,
 				complete 		: false,
 			}
+	
+	s.tarURL = 'views/auditFormat.tpl';
+
 
 	s.progress.active = true;
 	//Add Math to the View
@@ -405,10 +408,11 @@ angular.module('proRubrics', ['firebase'])
 			s.rubric.sections[sectionKey].score = secScore;
 		}
 		s.Audit.totalScore = totalScore;
-		s.progress.complete = Math.round(s.Audit.completedItems / s.Audit.totalItems * 100);
 		
+		s.Report = document.getElementById('hiddenReport').innerHTML;
 		//Audit completed
 		if(s.Audit.totalItems == s.Audit.completedItems){
+			s.progress.complete = Math.round(s.Audit.completedItems / s.Audit.totalItems * 100);
 			s.Audit.complete = true;
 			console.log(s.Audit.totalItems, s.Audit.completedItems);
 		}
