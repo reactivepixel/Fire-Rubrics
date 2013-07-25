@@ -5,6 +5,12 @@ angular.module('proRubrics', ['firebase'])
 .config(['$routeProvider',function(r){
 	r
 
+	// Intro
+	.when('/intro',{
+		templateUrl : 'views/intro.tpl',
+		controller	: 'Intro'
+	})
+	
 	// Index
 	.when('/',{
 		templateUrl : 'views/courses.tpl',
@@ -497,6 +503,10 @@ angular.module('proRubrics', ['firebase'])
 
 
 .controller('Detail', ['$scope', function(s){
+	s.name = 'Time to show a detail Page Derp derp';
+}])
+
+.controller('Intro', ['$scope', function(s){
 	s.name = 'Time to show a detail Page Derp derp';
 }]);
 

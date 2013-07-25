@@ -1,5 +1,5 @@
 <div class="alert alert-warning" ng-hide="closeAlert" ng-click="closeAlert=true">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <button type="button" class="close">&times;</button>
   <strong>Caution!</strong> Changes you make go live instantly!
 </div>
 
