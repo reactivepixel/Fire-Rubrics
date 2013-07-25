@@ -38,7 +38,7 @@
 	</div>
 
 	<div ng-hide="editorEnabled">
-		<small ng-click="editorEnabled=!editorEnabled" class="editor">{{Math.round(section.secWeight * 100)}}%</small>
+		<p ng-click="editorEnabled=!editorEnabled" class="editor">{{Math.round(section.secWeight * 100)}}%</p>
 	</div>
 	<div ng-show="editorEnabled">
 		<input ng-model="section.secWeight">

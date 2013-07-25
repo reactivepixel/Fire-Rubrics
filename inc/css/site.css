@@ -87,6 +87,7 @@ article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
 
 .editor:hover{
 	background-color: #F1E9C6;
+	cursor: pointer;
 }
 
 .row article .itemBox:hover{

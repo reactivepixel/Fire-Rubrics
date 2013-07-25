@@ -66,7 +66,46 @@
 
 </div>
 
+<div class="alert alert-info">
+	<h3>Audit Completed!</h3>
+	<p>
+		It's not too late to <a href="#fakelink">review the audit</a> and make changes if needed.
+		<br /><br />
+		Otherwise, copy the content below and paste it as the comment in FSO to give the student your detailed audit of their project.
+		
+	</p><div class="demo-content ptl">
+            <textarea rows="3" class="span12"><hgroup>
+	<h1>Master Mobile Project</h1>
+	<h2>MDD - Mobile Device Deployment</h2>	
+</hgroup>
 
+<aside>
+	You scored <strong>{{Math.round(Audit.totalScore * 100)}}</strong> out of 100 pts. possible.
+</aside>
+
+<section>
+	<h3>Assessment Breakdown</h3>
+	<p>Aesthetics</p>
+	<article>
+		<header><strong><a href="http://wddns.com/wiki/branding">Branding</a></strong> [8.5 pts of 8.5 pts]</header>
+		<p>Great work! This really stands out</p>
+	</article>
+	<article>
+		<header><strong>User Flow</strong> [8.5 pts of 8.5 pts]</header>
+		<p>Great work! This really stands out</p>
+	</article>
+	<article>
+		<header><strong>Information Hierarchy</strong> [8.5 pts of 8.5 pts]</header>
+		<p>Great work! This really stands out</p>
+	</article>
+</section>
+
+
+
+</textarea>
+          </div>
+	<a class="btn btn-info btn-wide">Copy to Clipbard</a>
+</div>
 
 
 <section ng-repeat="section in rubric.sections">

@@ -70,6 +70,9 @@ angular.module('proRubrics', ['firebase'])
 		captureDisp:false,
 		active:false
 	};
+	s.orderCourses = function(course){
+		return course.courseCode;
+	}
 }])
 
 // Add New Course Controller
@@ -82,7 +85,7 @@ angular.module('proRubrics', ['firebase'])
 	s.courses = angularFireCollection(url, s, 'courses', []);
 
 	// Save the currently selected CourseCode to the baseScope
-	s.courseCode = params.courseCode;
+	s.courseCode = params.courseCode.toUpperCase();
 
 	// ToDO: isolate FB to use only FB or Angelfire Attact a course to the DB
 	s.addCourse = function() {

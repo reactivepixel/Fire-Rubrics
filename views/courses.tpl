@@ -18,7 +18,7 @@
 
 </form>
 <div class="row">
-	<article class="span6" ng-repeat="course in courses | filter:input" ng-model="FilteredList">
+	<article class="span6" ng-repeat="course in courses | filter:input | orderBy:orderCourses " ng-model="FilteredList">
 		<div class="itemBox">
 			<a href="#/course/{{course.courseCode}}" class="info">			
 				<hgroup>
