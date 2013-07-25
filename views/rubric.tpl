@@ -109,7 +109,7 @@
 
 
 <section ng-repeat="section in rubric.sections">
-	<div class="sectionTitle span12">
+	<div class="sectionTitle">
 	
 			<p span="brand">
 				{{section.title}} 
