@@ -19,7 +19,7 @@
 				<strong><a href="{{item.url}}">{{item.title}}</a></strong>
 				- {{item.capture.gradeOption}}%
 			</header>
-			<p>{{item.content}}</p>
+			<p ng-show="item.Comment">Comments: {{item.Comment}}</p>
 		</article>
 	</div>
 </section>

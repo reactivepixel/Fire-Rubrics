@@ -75,19 +75,11 @@
 		<br /><br />
 		Otherwise, copy the content below and paste it as the comment in FSO to give the student your detailed audit of their project.
 		
-	</p><div class="demo-content ptl">
-            
-
-
-
-            <textarea rows="3" class="span12">{{Report}}</textarea>
-
-
-
-
-
-          </div>
-	<a class="btn btn-info btn-wide">Copy to Clipbard</a>
+	</p>
+	<div class="demo-content ptl">
+       	<textarea rows="3" class="span12">{{Report}}</textarea>
+    </div>
+	
 </div>
 
 
