@@ -317,7 +317,8 @@ angular.module('proRubrics', ['firebase'])
 	s.Audit = {
 				totalItems 		: 0,
 				completedItems 	: 0,
-				totalScore		: 0
+				totalScore		: 0,
+				complete 		: false,
 			}
 
 	s.progress.active = true;
@@ -405,8 +406,13 @@ angular.module('proRubrics', ['firebase'])
 		}
 		s.Audit.totalScore = totalScore;
 		s.progress.complete = Math.round(s.Audit.completedItems / s.Audit.totalItems * 100);
+		
+		//Audit completed
+		if(s.Audit.totalItems == s.Audit.completedItems){
+			s.Audit.complete = true;
+			console.log(s.Audit.totalItems, s.Audit.completedItems);
+		}
 
-		console.log(s.Audit.totalItems, s.Audit.completedItems);
 	}
 }])
 

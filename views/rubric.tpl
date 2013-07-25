@@ -66,7 +66,7 @@
 
 </div>
 
-<div class="alert alert-info">
+<div class="alert alert-info" ng-show="Audit.complete">
 	<h3>Audit Completed!</h3>
 	<p>
 		It's not too late to <a href="#fakelink">review the audit</a> and make changes if needed.
@@ -75,8 +75,8 @@
 		
 	</p><div class="demo-content ptl">
             <textarea rows="3" class="span12"><hgroup>
-	<h1>Master Mobile Project</h1>
-	<h2>MDD - Mobile Device Deployment</h2>	
+	<h1>{{rubric.title}}</h1>
+	<h2>{{course.courseCode}} - {{course.title}}</h2>	
 </hgroup>
 
 <aside>
@@ -86,18 +86,18 @@
 <section>
 	<h3>Assessment Breakdown</h3>
 	<p>Aesthetics</p>
-	<article>
-		<header><strong><a href="http://wddns.com/wiki/branding">Branding</a></strong> [8.5 pts of 8.5 pts]</header>
-		<p>Great work! This really stands out</p>
-	</article>
-	<article>
-		<header><strong>User Flow</strong> [8.5 pts of 8.5 pts]</header>
-		<p>Great work! This really stands out</p>
-	</article>
-	<article>
-		<header><strong>Information Hierarchy</strong> [8.5 pts of 8.5 pts]</header>
-		<p>Great work! This really stands out</p>
-	</article>
+	
+	<div ng-repeat="section in course.sections">
+		
+		<h5>{{section.title}}</h5>
+		<article ng-repeat="item in section.items">
+			<header>
+				<strong><a href="{{item.url}}">{{item.title}}</a></strong>
+				- {{Math.round(item.capture.gradeOption) * 100}}%
+			</header>
+			<p>{{item.content}}</p>
+		</article>
+	</div>
 </section>
 
 
