@@ -69,7 +69,7 @@
 <div class="alert alert-info" ng-show="Audit.complete">
 	<h3>Audit Completed!</h3>
 	<p>
-		It's not too late to <a href="#fakelink">review the audit</a> and make changes if needed.
+		It's not too late to <a ng-click="progress.captureDisp=!progress.captureDisp">review the audit</a> and make changes if needed.
 		<br /><br />
 		Otherwise, copy the content below and paste it as the comment in FSO to give the student your detailed audit of their project.
 		
@@ -104,7 +104,7 @@
 
 </textarea>
           </div>
-	<a class="btn btn-info btn-wide">Copy to Clipbard</a>
+	<!-- <a class="btn btn-info btn-wide">Copy to Clipbard</a> -->
 </div>
 
 
