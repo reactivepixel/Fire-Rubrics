@@ -26,6 +26,7 @@ a{
 	margin: 1em 0;
 }
 
+
 #progress{
 	cursor: hand;
 	cursor: pointer;
@@ -51,7 +52,7 @@ textarea{
 	color: #808C94;
 }
 
-article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
+article  div > a.btn{margin-right: .75em; margin-bottom: .5em}
 
 /* Item Box */
 	hgroup{

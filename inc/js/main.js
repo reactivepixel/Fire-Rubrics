@@ -79,7 +79,6 @@ angular.module('proRubrics', ['firebase'])
 
 	s.partials = {
 		intro 				: 'views/intro.tpl',
-		courseFilter 		: 'views/courseFilter.tpl',
 		courseRubric 		: 'views/_courseRubric.tpl',
 		courseRubricAdmin	: 'views/_courseRubricAdmin.tpl',
 		editorControls		: 'views/_editor.tpl',
@@ -322,11 +321,14 @@ angular.module('proRubrics', ['firebase'])
 
 	// Remove Rubric
 	s.deleteRubric = function(data){
-		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
-		var firebase = new Firebase(url);
-		firebase.remove();
-		s.rubric = {};
-		window.location = '#/course/' + s.course.courseCode;
+		var userConfirm = confirm("Delete all RUBRIC data? This includes all Sections and Items.");
+		if(userConfirm == true){
+			var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id + '/rubrics/' + s.rubric.$id;
+			var firebase = new Firebase(url);
+			firebase.remove();
+			s.rubric = {};
+			window.location = '#/course/' + s.course.courseCode;
+		}
 	}
 }])
 

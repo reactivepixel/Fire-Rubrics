@@ -69,7 +69,7 @@
 						
 
 			<div ng-hide="item.Editor">
-				<h3 >
+				<h3>
 							{{item.title}}
 							<small ng-show="item.url" class="non-essential">
 								<a>{{item.url}}</a>
@@ -86,8 +86,11 @@
 				
 				<label>Description</label>
 				<textarea class="span6" rows="9" ng-model="item.content" placeholder="50 to 75 Words"></textarea>
-				<small ng-click="item.Editor=!item.Editor; updateItem({item:item, section:section})">Done editing?</small>
-				<a ng-click="item.Editor=!item.Editor; deleteItem({item:item, section:section})">[delete]</a>
+				
+				<a ng-click="item.Editor=!item.Editor; updateItem({item:item, section:section})" class="btn btn-success btn-mini" ><span class="fui-check"></span>&nbsp;&nbsp;Done Editing?</a>
+
+				<a ng-click="item.Editor=!item.Editor; deleteItem({item:item, section:section})" class="btn btn-danger btn-mini"><span class="fui-trash fui-trash"></span></a>
+			
 			</div>
 
 
