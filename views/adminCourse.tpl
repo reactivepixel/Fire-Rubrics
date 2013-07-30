@@ -5,11 +5,6 @@
 
 <ng-include src="partials.courseRubricAdmin" onload="admin=true"></ng-include>
 
-
-<aside ng-hide="addNew">
-	<a class="btn btn-primary btn-small" ng-click="addNew=true"><span class="fui-plus"></span>&nbsp;&nbsp;Rubric</a>
-</aside>
-
 <aside ng-show="addNew">
 
 	<form ng-submit="addRubric()">

@@ -23,3 +23,9 @@ _What's under the hood?_
 - AngelFire
 - Twitter Bootstrap (UI)
 - Flat UI (UI)
+
+## Change Log
+
+- Index Page Filtering [Fixed]
+- Fixed Math on Score Calculation [Fixed]
+- v.1 Alpha Release [Release]
