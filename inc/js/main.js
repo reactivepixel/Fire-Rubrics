@@ -76,6 +76,15 @@ angular.module('proRubrics', ['firebase'])
 		captureDisp:false,
 		active:false
 	};
+
+	s.partials = {
+		intro 				: 'views/intro.tpl',
+		courseFilter 		: 'views/courseFilter.tpl',
+		courseRubric 		: 'views/_courseRubric.tpl',
+		courseRubricAdmin	: 'views/_courseRubricAdmin.tpl',
+		editorControls		: 'views/_editor.tpl',
+	}
+
 	s.orderCourses = function(course){
 		return course.courseCode;
 	}
@@ -106,7 +115,7 @@ angular.module('proRubrics', ['firebase'])
 
 // Course Controller
 .controller('Course', ['$scope','$timeout', '$routeParams', 'angularFireCollection',  function(s,$timeout,params,angularFireCollection){
-	
+
 	// Look for addNew Param, this will auto Disp the form to add a Rubric	
 	if(params.addNew){
 		s.addNew = true;
@@ -125,6 +134,8 @@ angular.module('proRubrics', ['firebase'])
 			}
 		});
 	});	
+
+
 
 	// Adding a Rubric on user trigger
 	s.addRubric = function() {
@@ -166,13 +177,16 @@ angular.module('proRubrics', ['firebase'])
 
 	// remove Course
 	s.deleteCourse = function(){
-		var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id ;
-		var firebase = new Firebase(url);
-		firebase.remove();
+		var userConfirm = confirm("Delete all COURSE data? This includes all Rubrics.");
+		if(userConfirm == true){
+			var url = 'https://prorubrics.firebaseio.com/courses/' + s.course.$id ;
+			var firebase = new Firebase(url);
+			firebase.remove();
 
-		// clear the client's model to remove it from display.
-		s.course = {};
-		window.location = '#/';
+			// clear the client's model to remove it from display.
+			s.course = {};
+			window.location = '#/';
+		}
 	}
 }])
 
@@ -390,7 +404,6 @@ angular.module('proRubrics', ['firebase'])
 
 	// On Grade option selected
 	s.onGrade = function(){
-
 		var totalScore = 0;
 		s.Audit.completedItems = 0; // Reset for tally
 		for(sectionKey in s.rubric.sections){
@@ -413,16 +426,19 @@ angular.module('proRubrics', ['firebase'])
 			}
 			s.rubric.sections[sectionKey].score = secScore;
 		}
-		s.Audit.totalScore = totalScore;
+		s.Audit.totalScore = Math.round(totalScore);
+
+		// target the score display id of the injected AuditFormat and modify the value
+		document.getElementById('scoreDisp').innerHTML = s.Audit.totalScore;
 		
-		s.Report = document.getElementById('hiddenReport').innerHTML;
+		s.progress.complete = Math.round(s.Audit.completedItems / s.Audit.totalItems * 100);
+
 		//Audit completed
 		if(s.Audit.totalItems == s.Audit.completedItems){
-			s.progress.complete = Math.round(s.Audit.completedItems / s.Audit.totalItems * 100);
 			s.Audit.complete = true;
 			console.log(s.Audit.totalItems, s.Audit.completedItems);
 		}
-
+		s.Report = document.getElementById('hiddenReport').innerHTML;
 	}
 }])
 

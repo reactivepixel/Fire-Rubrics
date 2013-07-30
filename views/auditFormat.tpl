@@ -4,7 +4,7 @@
 </hgroup>
 
 <aside>
-	You scored <strong>{{Audit.totalScore}}</strong> out of 100 pts. possible.
+	You scored <strong id="scoreDisp"></strong> out of 100 pts. possible.
 </aside>
 
 <section>

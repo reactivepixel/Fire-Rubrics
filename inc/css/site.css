@@ -94,8 +94,25 @@ article > div > a.btn{margin-right: .75em; margin-bottom: .5em}
 	background-color: #D2D6D7;
 }
 
+.admin .itemBox h3{
+	font-size: 1.5em;
+}
+.admin .itemBox p{
+	font-size: 1em;
+}
+
+/*
+.grade-options-wrapper{
+	float: right;
+}*/
+
 /* Flat Overrides*/
 h1{font-size: 4em;}
 .tagsinput .label, .tagsinput .btn{
 	margin-bottom: .5em;
+}
+
+.rubric h2.label{
+	font-size: 2em;
+	padding: .5em;
 }
